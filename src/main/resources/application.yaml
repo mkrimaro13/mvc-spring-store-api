@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: store-api
+    profiles:
+        active: dev
+    datasource:
+        driver-class-name: org.postgresql.Driver
+    jpa:
+        database: postgresql
+server:
+    servlet:
+        context-path: /lingerie-store/api
