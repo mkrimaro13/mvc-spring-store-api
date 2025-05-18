@@ -10,7 +10,7 @@ import java.util.List;
 @Table(name = "talla")
 @Getter
 @Setter
-public class Size {
+public class Talla{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -18,12 +18,7 @@ public class Size {
 
     @Column(name = "talla")
     @Enumerated(EnumType.STRING)
-    private Integer size;
-
-    /**
-     * @OneToMany(mappedBy = "size") Indica una relación One-to-Many con la entidad ProductSize.
-     * Esto permite acceder a la información de la tabla intermedia desde la entidad Talla.
-     */
+    private String talla;
     @OneToMany(mappedBy = "size")
-    private List<ProductSize> productSizes;
+    private List<TallaProducto> tallaProductos;
 }

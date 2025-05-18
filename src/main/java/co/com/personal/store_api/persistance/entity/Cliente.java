@@ -11,28 +11,28 @@ import java.util.List;
 @Table(name = "cliente")
 @Getter
 @Setter
-public class Customer {
+public class Cliente {
     @Id
     @Column(name = "id")
     private Integer id;
     @Column(name = "nombres")
-    private String names;
+    private String nombres;
     @Column(name = "apellidos")
-    private String lastName;
+    private String apellidos;
     @Column(name = "genero")
-    private String gender;
+    private String genero;
     @Column(name = "correo")
-    private String email;
+    private String correo;
     @Column(name = "telefono")
-    private String phone;
+    private String telefono;
     @Column(name = "fecha_creacion")
-    private LocalDateTime creationDate;
+    private LocalDateTime fechaCreacion;
     @Column(name = "fecha_actualizacion")
-    private LocalDateTime updateDate;
+    private LocalDateTime fechaActualizacion;
     @Column(name = "activo")
-    private boolean active;
-    @OneToMany(mappedBy = "customer")
-    private List<Order> orders;
-    @OneToMany(mappedBy = "customer")
-    private List<Address> addresses;
+    private boolean estado;
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos;
+    @OneToMany(mappedBy = "cliente")
+    private List<Direccion> direcciones;
 }

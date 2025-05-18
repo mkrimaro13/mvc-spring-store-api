@@ -11,24 +11,24 @@ import java.util.List;
 @Table(name = "categoria")
 @Getter
 @Setter
-public class Category {
+public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer Id;
 
     @Column(name = "nombre")
-    private String name;
+    private String nombre;
 
     @Column(name = "fecha_creacion")
-    private LocalDateTime creationDate;
+    private LocalDateTime fechaCreacion;
 
     @Column(name = "fecha_actualizacion")
-    private LocalDateTime updateDate;
+    private LocalDateTime fechaActualizacion;
 
     @Column(name = "activo")
-    private Boolean active;
+    private Boolean activo;
 
-    @OneToMany(mappedBy = "category")
-    private List<Product> products;
+    @OneToMany(mappedBy = "categoria")
+    private List<Producto> productos;
 }

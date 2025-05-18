@@ -10,23 +10,20 @@ import java.util.List;
 @Table(name = "talla_producto")
 @Getter
 @Setter
-public class ProductSize {
+public class TallaProducto {
     @EmbeddedId
-    private ProductSizePK id;
-
+    private TallaProductoPK id;
     @Column(name = "unidades_disponibles")
-    private Integer availableUnits;
-
-    // Relaciones explícitas.
+    private Integer unidadesDisponibles;
     @ManyToOne
     @JoinColumn(name = "id_producto", referencedColumnName = "id", insertable = false, updatable = false)
-    private Product product;
+    private Producto producto;
 
     @ManyToOne
     @JoinColumn(name = "id_talla", referencedColumnName = "id", insertable = false, updatable = false)
-    private Size size;
+    private Talla talla;
     
     @OneToMany(mappedBy = "productSize")
-    private List<ProductOrder> productOrders;
+    private List<PedidoProducto> pedidoProductos;
 
 }

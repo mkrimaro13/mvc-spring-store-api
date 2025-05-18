@@ -4,25 +4,29 @@ import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
 
-public class ProductOrder {
+@Getter
+@Setter
+public class PedidoProducto {
     @EmbeddedId
-    private ProductOrderPK id;
+    private PedidoProductoPK id;
     
     @Column(name="cantidad")
-    private Integer quantity;
+    private Integer cantidad;
     
     @Column(name="precio_unitario")
-    private Double unitPrice;
+    private Double precioUnitario;
     
     @Column(name="descuento_aplicado")
-    private Integer discount;
+    private Integer descuentoAplicado;
     
     @ManyToOne
     @JoinColumn(name = "id_pedido", referencedColumnName = "id", insertable = false, updatable = false)
-    private Order order;
+    private Pedido pedido;
 
     @ManyToOne
     @JoinColumn(name = "id_talla_producto", referencedColumnName = "id", insertable = false, updatable = false)
-    private ProductSize productSize;
+    private TallaProducto tallaProducto;
 }

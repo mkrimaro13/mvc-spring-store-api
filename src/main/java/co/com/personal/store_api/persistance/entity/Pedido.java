@@ -11,30 +11,30 @@ import java.util.List;
 @Table(name = "pedido")
 @Getter
 @Setter
-public class Order {
+public class Pedido {
     @Id
     @Column(name = "id")
     private Integer id;
     @ManyToOne
     @JoinColumn(name = "id_cliente", referencedColumnName = "id", insertable = false, updatable = false)
-    private Customer customer;
+    private Cliente cliente;
     @Column(name = "fecha")
-    private LocalDateTime date;
+    private LocalDateTime fecha;
     @Column(name = "total")
     private Double total;
     @Column(name = "estado")
-    private String state;
+    private String estado;
     @Column(name = "fecha_creacion")
-    private LocalDateTime creationDate;
+    private LocalDateTime fechaCreacion;
     @Column(name = "fecha_pago")
-    private LocalDateTime paymentDate;
+    private LocalDateTime fechaPago;
     @Column(name = "fecha_envio")
-    private LocalDateTime shipmentDate;
+    private LocalDateTime fechaEnvio;
     @Column(name = "fecha_entrega")
-    private LocalDateTime deliveryDate;
-    @Column(name = "fecha_cierre    ")
-    private LocalDateTime completionDate;
-    @OneToMany(mappedBy = "order")
-    private List<ProductOrder> productOrders;
+    private LocalDateTime fechaEntrega;
+    @Column(name = "fecha_cierre")
+    private LocalDateTime fechaCierre;
+    @OneToMany(mappedBy = "pedido")
+    private List<PedidoProducto> pedidoProducto;
 
 }
