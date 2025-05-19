@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name="pedido_producto")
+@Table(name="pedido_producto", schema = "tienda")
 public class PedidoProducto {
     @EmbeddedId
     private PedidoProductoPK id;

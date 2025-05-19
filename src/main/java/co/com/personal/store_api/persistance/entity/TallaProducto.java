@@ -7,7 +7,7 @@ import lombok.Setter;
 // import java.util.List;
 
 @Entity
-@Table(name = "talla_producto")
+@Table(name = "talla_producto", schema = "tienda")
 @Getter
 @Setter
 public class TallaProducto {

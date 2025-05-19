@@ -1,7 +1,7 @@
 # Welcome
 This project is a simple REST API using Spring starter web.
 
-This project is created according the guidance of the Platzi course [Java Spring](https://platzi.com/cursos/java-spring/implementar-la-anotacion-restcontroller/)
+This project is created according the guidance of the Platzi course [Java Spring](https://platzi.com/cursos/java-spring)
 
 Also, the idea of this project is to use it as a base of a possible backend to another project in the future.
 
