@@ -2,13 +2,17 @@ package co.com.personal.store_api.persistance.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Entity
+@Table(name="pedido_producto")
 public class PedidoProducto {
     @EmbeddedId
     private PedidoProductoPK id;

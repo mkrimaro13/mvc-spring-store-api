@@ -11,9 +11,9 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class TallaProductoPK implements Serializable {
-    @Column(name = "id_producto")
+    @Column(name = "id_producto",insertable = false, updatable = false)
     private Integer idProducto;
 
-    @Column(name = "id_talla")
+    @Column(name = "id_talla",insertable = false, updatable = false)
     private Integer idTalla;
 }

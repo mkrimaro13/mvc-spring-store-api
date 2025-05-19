@@ -4,26 +4,35 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
+// import java.util.List;
 
 @Entity
 @Table(name = "talla_producto")
 @Getter
 @Setter
 public class TallaProducto {
+
+    @Column(name="id")
+    private Integer id;
+
+
     @EmbeddedId
-    private TallaProductoPK id;
+    private TallaProductoPK embeddedId;
+
     @Column(name = "unidades_disponibles")
     private Integer unidadesDisponibles;
+
     @ManyToOne
-    @JoinColumn(name = "id_producto", referencedColumnName = "id", insertable = false, updatable = false)
+    @MapsId("idProducto")
+    @JoinColumn(name = "id_producto")
     private Producto producto;
 
     @ManyToOne
-    @JoinColumn(name = "id_talla", referencedColumnName = "id", insertable = false, updatable = false)
+    @MapsId("idTalla")
+    @JoinColumn(name = "id_talla")
     private Talla talla;
-    
-    @OneToMany(mappedBy = "productSize")
-    private List<PedidoProducto> pedidoProductos;
+
+    // @OneToMany(mappedBy = "productSize")
+    // private List<PedidoProducto> pedidoProductos;
 
 }

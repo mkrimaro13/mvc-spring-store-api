@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
+// import java.util.List;
 
 @Entity
 @Table(name = "talla")
@@ -17,8 +17,8 @@ public class Talla{
     private Integer id;
 
     @Column(name = "talla")
-    @Enumerated(EnumType.STRING)
+    // @Enumerated(EnumType.STRING)
     private String talla;
-    @OneToMany(mappedBy = "size")
-    private List<TallaProducto> tallaProductos;
+    // @OneToMany(mappedBy = "unidades_disponibles")
+    // private List<TallaProducto> tallaProductos;
 }
