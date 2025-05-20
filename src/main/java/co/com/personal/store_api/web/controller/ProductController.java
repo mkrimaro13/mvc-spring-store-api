@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,12 +36,12 @@ public class ProductController {
     }
 
     @PostMapping("")
-    public Product create(Product product) {
+    public Product create(@RequestBody Product product) {
         return productService.create(product);
     }
 
-    @DeleteMapping("")
-    public Boolean deactivate(Integer id) {
+    @DeleteMapping("/{id}")
+    public Boolean deactivate(@PathVariable("id") Integer id) {
         return productService.deactivate(id);
 
     }
