@@ -2,6 +2,8 @@ package co.com.personal.store_api.persistance.crud;
 
 import co.com.personal.store_api.persistance.entity.Producto;
 import jakarta.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -10,6 +12,14 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RepositorioCrudProducto extends CrudRepository<Producto, Integer> {
+    // @EntityGraph(attributePaths = { "categoria" })
+    // @Override
+    // Optional<Producto> findById(Integer id);
+
+    // @EntityGraph(attributePaths = { "categoria" })
+    // @Override
+    // Iterable<Producto> findAll();
+
     public List<Producto> findByCategoria_IdAndPrecioLessThanOrderByNombreAsc(int id, double precio);
 
     /**

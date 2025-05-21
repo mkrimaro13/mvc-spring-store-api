@@ -2,6 +2,7 @@ package co.com.personal.store_api.web.controller;
 
 import co.com.personal.store_api.domain.Product;
 import co.com.personal.store_api.domain.service.ProductService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +38,7 @@ public class ProductController {
 
     @PostMapping("")
     public Product create(@RequestBody Product product) {
-        return productService.create(product);
+        return getById(productService.create(product).getId()).orElse(null);
     }
 
     @DeleteMapping("/{id}")

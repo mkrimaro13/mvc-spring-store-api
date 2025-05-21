@@ -29,6 +29,8 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "id_categoria", referencedColumnName = "id", insertable = false, updatable = false)
     private Categoria categoria;
+    @Column(name = "id_categoria")
+    private Integer idCategoria;
     @Column(name = "fecha_creacion")
     private LocalDateTime fechaCreacion;
     @Column(name = "fecha_actualizacion")
