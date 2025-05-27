@@ -3,10 +3,10 @@ package co.com.personal.store_api.persistance.crud;
 import co.com.personal.store_api.persistance.entity.Producto;
 import jakarta.transaction.Transactional;
 
-import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,6 +44,6 @@ public interface RepositorioCrudProducto extends CrudRepository<Producto, Intege
     @Transactional
     @Modifying
     @Query("UPDATE Producto p SET p.activo = false WHERE p.id = :id")
-    public Integer softDeleteById(Integer id);
+    public Integer softDeleteById(@Param("id") Integer id); ///-> por el JPQL se debe indicar en el método cuál es el parámetro al que apunta ese atributo de entrada del método.
 
 }

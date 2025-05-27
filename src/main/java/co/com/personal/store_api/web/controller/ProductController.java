@@ -4,6 +4,8 @@ import co.com.personal.store_api.domain.Product;
 import co.com.personal.store_api.domain.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,28 +24,28 @@ public class ProductController {
     public ProductService productService;
 
     @GetMapping("")
-    public List<Product> getAll() {
-        return productService.getAll();
+    public ResponseEntity<List<Product>> getAll() {
+        return ResponseEntity.ok(productService.getAll());
     }
 
     @GetMapping("/{id}")
-    public Optional<Product> getById(@PathVariable("id") Integer id) {
-        return productService.getById(id);
+    public ResponseEntity<Product> getById(@PathVariable("id") Integer id) {
+        return ResponseEntity.of(productService.getById(id));
     }
 
     @GetMapping("/category/{categoryId}")
-    public Optional<List<Product>> getByCategory(@PathVariable("categoryId") Integer categoryId) {
-        return productService.getByCategory(categoryId);
+    public ResponseEntity<List<Product>> getByCategory(@PathVariable("categoryId") Integer categoryId) {
+        return ResponseEntity.of(productService.getByCategory(categoryId));
     }
 
     @PostMapping("")
-    public Product create(@RequestBody Product product) {
-        return getById(productService.create(product).getId()).orElse(null);
+    public ResponseEntity<Product> create(@RequestBody Product product) {
+        return new ResponseEntity<>(productService.create(product), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public Boolean deactivate(@PathVariable("id") Integer id) {
-        return productService.deactivate(id);
+    public ResponseEntity deactivate(@PathVariable("id") Integer id) {
+        return productService.deactivate(id) ? new ResponseEntity(HttpStatus.OK) : new ResponseEntity(HttpStatus.NOT_FOUND);
 
     }
 }
