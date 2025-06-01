@@ -12,9 +12,6 @@ public class Product {
     private String name;
     private String description;
     private String image;
-    private Double price;
-    private Double discount;
     private Category category;
-    private List<ProductVariant> sizes;
     private Boolean active;
 }
